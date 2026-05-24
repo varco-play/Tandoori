@@ -1,4 +1,4 @@
-// In-memory session store. Replace with Redis or DB adapter later.
+// In-memory session store. Swap for Redis/DB by replacing only this file.
 const sessions = {};
 
 function createSession(userId) {
@@ -10,24 +10,21 @@ function createSession(userId) {
       fullName: '',
       age: '',
       gender: '',
-      maritalStatus: '',
       currentCity: '',
       distanceOrLocation: '',
       usStatus: '',
-      workAuthorization: '',
-      experience: '',
-      languages: '',
-      hoursPerWeek: '',
-      dayShift: '',
-      nightShift: '',
-      weekends: '',
-      startDate: '',
+      workAuthorization: '', // 'auto' (GC/Citizen implied) | 'yes' | 'no'
+      experience: '',        // 'None' or description text
+      languages: '',         // comma-joined display labels
       transportation: '',
+      hoursPerWeek: '',
+      availability: '',      // comma-joined display labels
+      startDate: '',
       phone: '',
-      telegramUsername: '',
       comments: '',
     },
-    editingField: null,
+    multiSelectState: null,  // { field, options[], selected[], messageId }
+    editingField: null,      // non-null when editing from review screen
   };
   return sessions[userId];
 }
@@ -54,4 +51,7 @@ function deleteSession(userId) {
   delete sessions[userId];
 }
 
-module.exports = { createSession, getSession, getOrCreateSession, updateSession, updateData, deleteSession };
+module.exports = {
+  createSession, getSession, getOrCreateSession,
+  updateSession, updateData, deleteSession,
+};

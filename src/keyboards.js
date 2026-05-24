@@ -4,7 +4,8 @@ function langKeyboard() {
   return {
     reply_markup: {
       keyboard: [
-        [{ text: '🇺🇸 English' }, { text: '🇷🇺 Русский' }, { text: '🇺🇿 O\'zbek' }],
+        [{ text: '🇺🇿 O\'zbek' }, { text: '🇺🇸 English' }],
+        [{ text: '🇷🇺 Русский' }, { text: '🇪🇸 Español' }],
       ],
       resize_keyboard: true,
       one_time_keyboard: true,
@@ -12,13 +13,23 @@ function langKeyboard() {
   };
 }
 
-function branchKeyboard(lang) {
+function startKeyboard(lang) {
+  return {
+    reply_markup: {
+      keyboard: [[{ text: t[lang].btnStart }]],
+      resize_keyboard: true,
+      one_time_keyboard: true,
+    },
+  };
+}
+
+function branchKeyboard() {
   return {
     reply_markup: {
       keyboard: [
-        [{ text: '🏪 Philadelphia' }],
-        [{ text: '🏪 Pittsburgh' }],
-        [{ text: '🏪 New York' }],
+        [{ text: 'Philadelphia' }],
+        [{ text: 'Pittsburgh' }],
+        [{ text: 'New York' }],
       ],
       resize_keyboard: true,
       one_time_keyboard: true,
@@ -31,7 +42,6 @@ function genderKeyboard(lang) {
     reply_markup: {
       keyboard: [
         [{ text: t[lang].genderMale }, { text: t[lang].genderFemale }],
-        [{ text: t[lang].genderOther }],
       ],
       resize_keyboard: true,
       one_time_keyboard: true,
@@ -39,12 +49,12 @@ function genderKeyboard(lang) {
   };
 }
 
-function maritalKeyboard(lang) {
+function locationKeyboard(lang) {
   return {
     reply_markup: {
       keyboard: [
-        [{ text: t[lang].maritalSingle }, { text: t[lang].maritalMarried }],
-        [{ text: t[lang].maritalDivorced }, { text: t[lang].maritalWidowed }],
+        [{ text: t[lang].btnShareLocation, request_location: true }],
+        [{ text: t[lang].btnTypeManually }],
       ],
       resize_keyboard: true,
       one_time_keyboard: true,
@@ -53,10 +63,12 @@ function maritalKeyboard(lang) {
 }
 
 function usStatusKeyboard(lang) {
-  const opts = t[lang].usStatusOptions;
   return {
     reply_markup: {
-      keyboard: opts.map((o) => [{ text: o }]),
+      keyboard: [
+        [{ text: t[lang].usStatusGreenCard }, { text: t[lang].usStatusCitizen }],
+        [{ text: t[lang].usStatusVisa }, { text: t[lang].usStatusOther }],
+      ],
       resize_keyboard: true,
       one_time_keyboard: true,
     },
@@ -75,10 +87,24 @@ function yesNoKeyboard(lang) {
   };
 }
 
-function removeKeyboard() {
+function startDateKeyboard(lang) {
   return {
     reply_markup: {
-      remove_keyboard: true,
+      keyboard: [
+        [{ text: t[lang].btnImmediately }, { text: t[lang].btnEnterDate }],
+      ],
+      resize_keyboard: true,
+      one_time_keyboard: true,
+    },
+  };
+}
+
+function commentsKeyboard(lang) {
+  return {
+    reply_markup: {
+      keyboard: [[{ text: t[lang].btnSkip }]],
+      resize_keyboard: true,
+      one_time_keyboard: true,
     },
   };
 }
@@ -87,8 +113,8 @@ function reviewKeyboard(lang) {
   return {
     reply_markup: {
       keyboard: [
-        [{ text: t[lang].btnConfirm }],
-        [{ text: t[lang].btnEdit }],
+        [{ text: t[lang].btnSubmit }],
+        [{ text: t[lang].btnEditAnswers }],
         [{ text: t[lang].btnCancel }],
       ],
       resize_keyboard: true,
@@ -96,28 +122,25 @@ function reviewKeyboard(lang) {
   };
 }
 
-function editFieldsKeyboard(lang) {
+function editFieldsKeyboard(lang, showWorkAuth) {
+  const tr = t[lang];
   const fields = [
-    t[lang].reviewName,
-    t[lang].reviewAge,
-    t[lang].reviewGender,
-    t[lang].reviewMarital,
-    t[lang].reviewCity,
-    t[lang].reviewDistance,
-    t[lang].reviewUsStatus,
-    t[lang].reviewWorkAuth,
-    t[lang].reviewExperience,
-    t[lang].reviewLanguages,
-    t[lang].reviewHours,
-    t[lang].reviewDayShift,
-    t[lang].reviewNightShift,
-    t[lang].reviewWeekends,
-    t[lang].reviewStartDate,
-    t[lang].reviewTransportation,
-    t[lang].reviewPhone,
-    t[lang].reviewTelegram,
-    t[lang].reviewComments,
-    t[lang].editBack,
+    tr.reviewName,
+    tr.reviewAge,
+    tr.reviewGender,
+    tr.reviewCity,
+    tr.reviewDistance,
+    tr.reviewUsStatus,
+    ...(showWorkAuth ? [tr.reviewWorkAuth] : []),
+    tr.reviewExperience,
+    tr.reviewLanguages,
+    tr.reviewTransportation,
+    tr.reviewHours,
+    tr.reviewAvailability,
+    tr.reviewStartDate,
+    tr.reviewPhone,
+    tr.reviewComments,
+    tr.editBack,
   ];
   return {
     reply_markup: {
@@ -131,7 +154,8 @@ function cancelConfirmKeyboard(lang) {
   return {
     reply_markup: {
       keyboard: [
-        [{ text: t[lang].btnYesCancel }, { text: t[lang].btnNoGoBack }],
+        [{ text: t[lang].btnYesCancel }],
+        [{ text: t[lang].btnNoGoBack }],
       ],
       resize_keyboard: true,
       one_time_keyboard: true,
@@ -139,28 +163,23 @@ function cancelConfirmKeyboard(lang) {
   };
 }
 
-function locationKeyboard(lang) {
-  return {
-    reply_markup: {
-      keyboard: [
-        [{ text: '📍 Share Location', request_location: true }],
-      ],
-      resize_keyboard: true,
-      one_time_keyboard: true,
-    },
-  };
+// Multi-select inline keyboard — callback_data: ms_0..ms_N and ms_d (done)
+function buildMultiSelectMarkup(options, selected, doneText) {
+  const rows = options.map((opt, i) => [{
+    text: (selected.includes(opt) ? '✅ ' : '◻️ ') + opt,
+    callback_data: 'ms_' + i,
+  }]);
+  rows.push([{ text: doneText, callback_data: 'ms_d' }]);
+  return { inline_keyboard: rows };
+}
+
+function removeKeyboard() {
+  return { reply_markup: { remove_keyboard: true } };
 }
 
 module.exports = {
-  langKeyboard,
-  branchKeyboard,
-  genderKeyboard,
-  maritalKeyboard,
-  usStatusKeyboard,
-  yesNoKeyboard,
-  removeKeyboard,
-  reviewKeyboard,
-  editFieldsKeyboard,
-  cancelConfirmKeyboard,
-  locationKeyboard,
+  langKeyboard, startKeyboard, branchKeyboard, genderKeyboard,
+  locationKeyboard, usStatusKeyboard, yesNoKeyboard, startDateKeyboard,
+  commentsKeyboard, reviewKeyboard, editFieldsKeyboard, cancelConfirmKeyboard,
+  buildMultiSelectMarkup, removeKeyboard,
 };
