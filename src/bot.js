@@ -45,7 +45,7 @@ function isGCOrCitizen(usStatus, lang) {
 }
 
 function isImmediately(startDate, lang) {
-  return startDate === tr(lang, 'btnImmediately');
+  return startDate === tr(lang, 'immediatelyText');
 }
 
 // ─── Step prompt sender ───────────────────────────────────────────────────────
@@ -351,8 +351,8 @@ async function handleMessage(msg) {
   switch (step) {
 
     case 'choose_branch': {
-      const branches = ['Philadelphia', 'Pittsburgh', 'New York'];
-      const branchKeys = { 'Philadelphia': 'philadelphia', 'Pittsburgh': 'pittsburgh', 'New York': 'new_york' };
+      const branches = ['Philadelphia', 'Pittsburgh', 'Brooklyn'];
+      const branchKeys = { 'Philadelphia': 'philadelphia', 'Pittsburgh': 'pittsburgh', 'Brooklyn': 'new_york' };
       if (!branches.includes(text)) {
         await send(chatId, tr(lang, 'invalidBranch'), branchKeyboard());
         return;

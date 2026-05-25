@@ -29,7 +29,7 @@ function branchKeyboard() {
       keyboard: [
         [{ text: 'Philadelphia' }],
         [{ text: 'Pittsburgh' }],
-        [{ text: 'New York' }],
+        [{ text: 'Brooklyn' }],
       ],
       resize_keyboard: true,
       one_time_keyboard: true,
