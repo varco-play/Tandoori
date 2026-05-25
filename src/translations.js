@@ -19,11 +19,11 @@ const t = {
 
     // Name
     askName: '👤 To\'liq ismingizni kiriting (Familiya Ism):',
-    invalidName: '⚠️ Noto\'g\'ri format. Iltimos, qaytadan kiriting.',
+    invalidName: '⚠️ Ism bo\'sh bo\'lmasligi kerak. Familiya va ismingizni kiriting.',
 
     // Age
     askAge: 'Yoshingizni kiriting:',
-    invalidAge: '⚠️ Noto\'g\'ri format. Iltimos, qaytadan kiriting.',
+    invalidAge: '⚠️ 16 dan 80 gacha yosh kiriting.',
 
     // Gender (only Male/Female per client script)
     askGender: 'Jinsingizni tanlang:',
@@ -32,14 +32,14 @@ const t = {
 
     // City / State
     askCity: '🏙 Hozir qaysi shahar/shtatda yashayapsiz?',
-    invalidCity: '⚠️ Noto\'g\'ri format. Iltimos, qaytadan kiriting.',
+    invalidCity: '⚠️ Shahar/shtat bo\'sh bo\'lmasligi kerak. Qaytadan kiriting.',
 
     // Location / Distance
     askDistance: '📍 Joylashuvingizni yuboring yoki manzilingizni yozing.\n(Filialdan masofani aniqlash uchun ishlatiladi)',
     btnShareLocation: '📍 Joylashuvni yuborish',
     btnTypeManually: '✍️ Qo\'lda kiritish',
     askDistanceManual: 'Manzilingizni kiriting:',
-    invalidDistance: '⚠️ Noto\'g\'ri format. Iltimos, qaytadan kiriting.',
+    invalidDistance: '⚠️ Manzilingizni kiriting yoki joylashuvni ulashing.',
 
     // US Status — natural Uzbek: no "yashil karta", no "AQSH fuqarosi"
     askUsStatus: '🇺🇸 AQSHdagi statusingizni tanlang:',
@@ -56,7 +56,7 @@ const t = {
     // Experience
     askExperienceYn: '💼 Ish tajribangiz bormi?',
     askExperienceDetail: '💼 Qaysi sohalarda ishlagansiz? Qisqacha yozing:',
-    invalidExperience: '⚠️ Noto\'g\'ri format. Iltimos, qaytadan kiriting.',
+    invalidExperience: '⚠️ Ish tajribangizni qisqacha yozing.',
     noneText: 'Yo\'q',
 
     // Languages (multi-select)
@@ -70,7 +70,7 @@ const t = {
 
     // Hours
     askHours: '⏱ Haftada necha soat ishlay olasiz?',
-    invalidHours: '⚠️ Noto\'g\'ri format. Iltimos, qaytadan kiriting.',
+    invalidHours: '⚠️ 1 dan 168 gacha son kiriting.',
 
     // Availability (multi-select)
     askAvailability: 'Quyidagi vaqtlarda ishlayolasizmi? (Bir nechtasini tanlashingiz mumkin)',
@@ -81,12 +81,12 @@ const t = {
     btnImmediately: '🟢 Darhol',
     btnEnterDate: '📅 Sanani kiriting',
     askStartDateInput: 'Boshlash sanasini kiriting (KK.OO.YYYY):',
-    invalidStartDate: '⚠️ Noto\'g\'ri format. Iltimos, qaytadan kiriting.',
+    invalidStartDate: '⚠️ Sanani KK.OO.YYYY formatida kiriting (masalan: 15.06.2025).',
     immediatelyText: 'Darhol',
 
     // Phone
     askPhone: '📞 Telefon raqamingizni kiriting:',
-    invalidPhone: '⚠️ Noto\'g\'ri format. Iltimos, qaytadan kiriting.',
+    invalidPhone: '⚠️ Telefon raqamingizni kiriting (masalan: +1 234 567 8900).',
 
     // Comments
     askComments: '📝 Qo\'shimcha izoh yoki eslatmalaringiz bormi?',
@@ -151,23 +151,23 @@ const t = {
     invalidBranch: '⚠️ Неверный выбор. Пожалуйста, нажмите одну из кнопок.',
 
     askName: '👤 Введите ваше полное имя (Фамилия Имя):',
-    invalidName: '⚠️ Неверный формат. Пожалуйста, попробуйте снова.',
+    invalidName: '⚠️ Имя не может быть пустым. Введите фамилию и имя.',
 
     askAge: 'Введите ваш возраст:',
-    invalidAge: '⚠️ Неверный формат. Пожалуйста, попробуйте снова.',
+    invalidAge: '⚠️ Введите корректный возраст от 16 до 80 лет.',
 
     askGender: 'Выберите ваш пол:',
     genderMale: 'Мужской',
     genderFemale: 'Женский',
 
     askCity: '🏙 В каком городе/штате вы сейчас живёте?',
-    invalidCity: '⚠️ Неверный формат. Пожалуйста, попробуйте снова.',
+    invalidCity: '⚠️ Поле не может быть пустым. Введите ваш город/штат.',
 
     askDistance: '📍 Поделитесь своим местоположением или введите адрес вручную.\n(Используется для расчёта расстояния до филиала)',
     btnShareLocation: '📍 Отправить геолокацию',
     btnTypeManually: '✍️ Ввести вручную',
     askDistanceManual: 'Введите ваш адрес:',
-    invalidDistance: '⚠️ Неверный формат. Пожалуйста, попробуйте снова.',
+    invalidDistance: '⚠️ Введите адрес или поделитесь геолокацией.',
 
     askUsStatus: '🇺🇸 Выберите ваш статус в США:',
     usStatusGreenCard: '🪪 Грин-карта',
@@ -181,7 +181,7 @@ const t = {
 
     askExperienceYn: '💼 Есть ли у вас опыт работы?',
     askExperienceDetail: '💼 В каких сферах вы работали? Кратко опишите:',
-    invalidExperience: '⚠️ Неверный формат. Пожалуйста, попробуйте снова.',
+    invalidExperience: '⚠️ Кратко опишите ваш опыт работы.',
     noneText: 'Нет',
 
     askLanguages: '🌐 На каких языках вы говорите? (Можно выбрать несколько)',
@@ -192,7 +192,7 @@ const t = {
     askTransportation: '🚗 Есть ли у вас личный транспорт?',
 
     askHours: '⏱ Сколько часов в неделю вы можете работать?',
-    invalidHours: '⚠️ Неверный формат. Пожалуйста, попробуйте снова.',
+    invalidHours: '⚠️ Введите число от 1 до 168.',
 
     askAvailability: 'В какое время вы готовы работать? (Можно выбрать несколько)',
     availabilityOptions: ['☀️ Днём', '🌙 Ночью', '📅 В будни', '🏖 В выходные'],
@@ -201,11 +201,11 @@ const t = {
     btnImmediately: '🟢 Немедленно',
     btnEnterDate: '📅 Ввести дату',
     askStartDateInput: 'Введите дату начала работы (ДД.ММ.ГГГГ):',
-    invalidStartDate: '⚠️ Неверный формат. Пожалуйста, попробуйте снова.',
+    invalidStartDate: '⚠️ Используйте формат ДД.ММ.ГГГГ (например: 15.06.2025).',
     immediatelyText: 'Немедленно',
 
     askPhone: '📞 Введите ваш номер телефона:',
-    invalidPhone: '⚠️ Неверный формат. Пожалуйста, попробуйте снова.',
+    invalidPhone: '⚠️ Введите корректный номер телефона (например: +1 234 567 8900).',
 
     askComments: '📝 Есть ли у вас дополнительные комментарии?',
     btnSkip: '⏭ Пропустить',
@@ -263,23 +263,23 @@ const t = {
     invalidBranch: '⚠️ Invalid choice. Please press one of the buttons below.',
 
     askName: '👤 Enter your full name (Last Name First Name):',
-    invalidName: '⚠️ Invalid input. Please try again.',
+    invalidName: '⚠️ Name cannot be empty. Please enter your full name.',
 
     askAge: 'Enter your age:',
-    invalidAge: '⚠️ Invalid input. Please try again.',
+    invalidAge: '⚠️ Please enter a valid age between 16 and 80.',
 
     askGender: 'Select your gender:',
     genderMale: 'Male',
     genderFemale: 'Female',
 
     askCity: '🏙 What city/state do you currently live in?',
-    invalidCity: '⚠️ Invalid input. Please try again.',
+    invalidCity: '⚠️ City/state cannot be empty. Please try again.',
 
     askDistance: '📍 Share your location or type your address.\n(Used to calculate distance from the branch)',
     btnShareLocation: '📍 Share Location',
     btnTypeManually: '✍️ Type Manually',
     askDistanceManual: 'Please type your address:',
-    invalidDistance: '⚠️ Invalid input. Please try again.',
+    invalidDistance: '⚠️ Please enter your address or share your location.',
 
     askUsStatus: '🇺🇸 Select your US status:',
     usStatusGreenCard: '🪪 Green Card',
@@ -293,7 +293,7 @@ const t = {
 
     askExperienceYn: '💼 Do you have any work experience?',
     askExperienceDetail: '💼 What fields have you worked in? Briefly describe:',
-    invalidExperience: '⚠️ Invalid input. Please try again.',
+    invalidExperience: '⚠️ Please briefly describe your work experience.',
     noneText: 'None',
 
     askLanguages: '🌐 Which languages do you speak? (You can select multiple)',
@@ -304,7 +304,7 @@ const t = {
     askTransportation: '🚗 Do you have your own transportation?',
 
     askHours: '⏱ How many hours per week can you work?',
-    invalidHours: '⚠️ Invalid input. Please try again.',
+    invalidHours: '⚠️ Please enter a number between 1 and 168.',
 
     askAvailability: 'When are you available to work? (You can select multiple)',
     availabilityOptions: ['☀️ Day shift', '🌙 Night shift', '📅 Weekdays', '🏖 Weekends'],
@@ -313,11 +313,11 @@ const t = {
     btnImmediately: '🟢 Immediately',
     btnEnterDate: '📅 Enter a date',
     askStartDateInput: 'Please enter your start date (DD.MM.YYYY):',
-    invalidStartDate: '⚠️ Invalid input. Please try again.',
+    invalidStartDate: '⚠️ Please use the format DD.MM.YYYY (e.g. 15.06.2025).',
     immediatelyText: 'Immediately',
 
     askPhone: '📞 Enter your phone number:',
-    invalidPhone: '⚠️ Invalid input. Please try again.',
+    invalidPhone: '⚠️ Please enter a valid phone number (e.g. +1 234 567 8900).',
 
     askComments: '📝 Any additional comments or notes?',
     btnSkip: '⏭ Skip',
@@ -375,23 +375,23 @@ const t = {
     invalidBranch: '⚠️ Selección no válida. Por favor presiona uno de los botones.',
 
     askName: '👤 Ingresa tu nombre completo (Apellido Nombre):',
-    invalidName: '⚠️ Entrada no válida. Por favor, inténtalo de nuevo.',
+    invalidName: '⚠️ El nombre no puede estar vacío. Ingresa tu nombre completo.',
 
     askAge: 'Ingresa tu edad:',
-    invalidAge: '⚠️ Entrada no válida. Por favor, inténtalo de nuevo.',
+    invalidAge: '⚠️ Ingresa una edad válida entre 16 y 80 años.',
 
     askGender: 'Selecciona tu género:',
     genderMale: 'Masculino',
     genderFemale: 'Femenino',
 
     askCity: '🏙 ¿En qué ciudad/estado vives actualmente?',
-    invalidCity: '⚠️ Entrada no válida. Por favor, inténtalo de nuevo.',
+    invalidCity: '⚠️ El campo no puede estar vacío. Ingresa tu ciudad/estado.',
 
     askDistance: '📍 Comparte tu ubicación o escribe tu dirección.\n(Se usa para calcular la distancia a la sucursal)',
     btnShareLocation: '📍 Compartir ubicación',
     btnTypeManually: '✍️ Escribir manualmente',
     askDistanceManual: 'Por favor escribe tu dirección:',
-    invalidDistance: '⚠️ Entrada no válida. Por favor, inténtalo de nuevo.',
+    invalidDistance: '⚠️ Ingresa tu dirección o comparte tu ubicación.',
 
     askUsStatus: '🇺🇸 Selecciona tu estatus en EE.UU.:',
     usStatusGreenCard: '🪪 Tarjeta verde',
@@ -405,7 +405,7 @@ const t = {
 
     askExperienceYn: '💼 ¿Tienes experiencia laboral?',
     askExperienceDetail: '💼 ¿En qué áreas has trabajado? Describe brevemente:',
-    invalidExperience: '⚠️ Entrada no válida. Por favor, inténtalo de nuevo.',
+    invalidExperience: '⚠️ Por favor describe brevemente tu experiencia laboral.',
     noneText: 'Ninguna',
 
     askLanguages: '🌐 ¿Qué idiomas hablas? (Puedes seleccionar varios)',
@@ -416,7 +416,7 @@ const t = {
     askTransportation: '🚗 ¿Tienes transporte propio?',
 
     askHours: '⏱ ¿Cuántas horas por semana puedes trabajar?',
-    invalidHours: '⚠️ Entrada no válida. Por favor, inténtalo de nuevo.',
+    invalidHours: '⚠️ Ingresa un número entre 1 y 168.',
 
     askAvailability: '¿Cuándo estás disponible para trabajar? (Puedes seleccionar varios)',
     availabilityOptions: ['☀️ Turno diurno', '🌙 Turno nocturno', '📅 Entre semana', '🏖 Fines de semana'],
@@ -425,11 +425,11 @@ const t = {
     btnImmediately: '🟢 Inmediatamente',
     btnEnterDate: '📅 Ingresar una fecha',
     askStartDateInput: 'Por favor ingresa tu fecha de inicio (DD.MM.AAAA):',
-    invalidStartDate: '⚠️ Entrada no válida. Por favor, inténtalo de nuevo.',
+    invalidStartDate: '⚠️ Usa el formato DD.MM.AAAA (ej.: 15.06.2025).',
     immediatelyText: 'Inmediatamente',
 
     askPhone: '📞 Ingresa tu número de teléfono:',
-    invalidPhone: '⚠️ Entrada no válida. Por favor, inténtalo de nuevo.',
+    invalidPhone: '⚠️ Ingresa un número de teléfono válido (ej.: +1 234 567 8900).',
 
     askComments: '📝 ¿Algún comentario o nota adicional?',
     btnSkip: '⏭ Omitir',
